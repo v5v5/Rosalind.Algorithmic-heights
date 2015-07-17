@@ -35,13 +35,14 @@ public class Data {
 			
 			String[] pair;
 			String line;
-			int iLine = 0;
+			int iLine = -1;
 			Edge edge;
 
 			while ((line = in.readLine()) != null) {
 
 				pair = line.split(" ");
 
+				iLine++;
 				if (iLine == 0) {
 					data.nVertexes = Integer.parseInt(pair[0]);
 					data.nEdges = Integer.parseInt(pair[1]);
@@ -53,7 +54,6 @@ public class Data {
 				edge.v1 = Integer.parseInt(pair[1]);
 
 				edges.add(edge);
-				iLine++;
 			}
 			in.close();
 		} catch (IOException e) {
