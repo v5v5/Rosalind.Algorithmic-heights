@@ -5,14 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-import _02_DEG_DegreeArray.Algorithms;
-
 public class Data {
 
 	public static int[] getData() {
 		int[] integers = null;
 
-		URL url = Algorithms.class.getResource("/03_INS_InsertionSort.txt");
+		URL url = Data.class.getResource("/03_INS_InsertionSort.txt");
 
 		BufferedReader in;
 

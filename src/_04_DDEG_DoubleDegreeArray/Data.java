@@ -1,4 +1,4 @@
-package _02_DEG_DegreeArray;
+package _04_DDEG_DoubleDegreeArray;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,31 +8,31 @@ import java.util.ArrayList;
 
 public class Data {
 
-	static public class DataDEG {
+	static public class DataDDEG {
 		public int nVertexes;
 		public int nEdges;
 		public Edge[] edges;
 	}
-	
+
 	static public class Edge {
 		public int v0;
 		public int v1;
-		
+
 		@Override
 		public String toString() {
 			return v0 + ", " + v1;
 		}
 	}
-	
-	public static void getData(DataDEG data) {
-		URL url = Data.class.getResource("/02_DEG_DegreeArray.txt");
+
+	public static void getData(DataDDEG data) {
+		URL url = Data.class.getResource("/04_DDEG_DoubleDegreeArray.txt");
 
 		BufferedReader in;
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 
 		try {
 			in = new BufferedReader(new InputStreamReader(url.openStream()));
-			
+
 			String[] pair;
 			String line;
 			int iLine = -1;

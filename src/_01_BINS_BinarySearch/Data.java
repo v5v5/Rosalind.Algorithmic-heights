@@ -12,7 +12,7 @@ public class Data {
 	}
 
 	public static void getData(DataBINS data) {
-		URL url = Algorithms.class.getResource("/01_BINS_BinarySearch.txt");
+		URL url = Data.class.getResource("/01_BINS_BinarySearch.txt");
 
 		BufferedReader in;
 		
