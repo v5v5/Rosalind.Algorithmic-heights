@@ -10,31 +10,68 @@ public class Algorithms {
 
 		System.arraycopy(data.a, 0, heap, 0, data.a.length);
 
-		for (int i = heap.length / 2; i > 0; i--) {
-			heapify0(heap, i);
+//		for (int i = heap.length - 1; i >= 0; i--) {
+//			// heapify(heap, i);
+//		}
+
+		int i = heap.length - 1;
+		while (true) {
+			i = heap.length - 1;
+			i = bubbleUp(heap, i);
+			
+			if (i == -1) {
+				break;
+			}
 		}
 
 		return heap;
 	}
 
-	private static void heapify(int[] heap, int i) {
-		int tmp = heap[i];
-		int child;
+	private static int bubbleUp(int[] a, int start) {
+		int p;
+		for (int i = start; i > 0; i--) {
+			p = (i - 1) / 2;
 
-		for (; left(i) <= heap.length; i = child) {
-			child = left(i);
-
-			if (child != heap.length && heap[child] > heap[child + 1]) {
-				child++;
+			if (a[p] >= a[i]) {
+				continue;
 			}
 
-			if (tmp > heap[child]) {
-				heap[i] = heap[child];
-			} else {
+			int temp = a[i];
+			a[i] = a[p];
+			a[p] = temp;
+
+			return i - 1;
+		}
+		return -1;
+	}
+
+	private static void heapify(int[] heap, int i) {
+		int l;
+		int r;
+		int largest;
+
+		for (;;) {
+			l = 2 * i + 1;
+			r = 2 * i + 2;
+			largest = i;
+
+			if (l < heap.length && heap[l] > heap[largest]) {
+				largest = l;
+			}
+
+			if (r < heap.length && heap[r] > heap[largest]) {
+				largest = r;
+			}
+
+			if (largest == i) {
 				break;
 			}
+
+			int temp = heap[i];
+			heap[i] = heap[largest];
+			heap[largest] = temp;
+			i = largest;
 		}
-		heap[i] = tmp;
 	}
 
 	private static void heapify0(int[] a, int i) {
@@ -57,6 +94,7 @@ public class Algorithms {
 			a[largest] = temp;
 
 			heapify0(a, largest);
+			// heapify0(a, i);
 		}
 	}
 
