@@ -10,15 +10,15 @@ public class Algorithms {
 
 		System.arraycopy(data.a, 0, heap, 0, data.a.length);
 
-//		for (int i = heap.length - 1; i >= 0; i--) {
-//			// heapify(heap, i);
-//		}
+		// for (int i = heap.length - 1; i >= 0; i--) {
+		// // heapify(heap, i);
+		// }
 
 		int i = heap.length - 1;
 		while (true) {
 			i = heap.length - 1;
 			i = bubbleUp(heap, i);
-			
+
 			if (i == -1) {
 				break;
 			}
@@ -43,6 +43,19 @@ public class Algorithms {
 			return i - 1;
 		}
 		return -1;
+	}
+
+	private static int bubbleUp0(int[] a, int start) {
+		int i = start;
+		while (i > 1 && a[i / 2] < a[i]) {
+
+			int temp = a[i];
+			a[i] = a[i / 2];
+			a[i / 2] = temp;
+
+			i = i / 2;
+		}
+		return i - 1; 
 	}
 
 	private static void heapify(int[] heap, int i) {
